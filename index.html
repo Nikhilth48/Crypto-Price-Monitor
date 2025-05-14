@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Crypto Price Monitor</title>
+  <link rel="stylesheet" href="style.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <h1>Crypto Price Monitor</h1>
+
+  <!-- Theme Toggle Button -->
+  <button id="themeToggle" onclick="toggleTheme()">Switch to Dark Mode</button>
+
+  <label for="currencySelect">Currency:</label>
+  <select id="currencySelect" onchange="changeCurrency()">
+    <option value="usd">USD</option>
+    <option value="inr">INR</option>
+    <option value="eur">EUR</option>
+  </select>
+
+  <!-- Search Bar with Autocomplete -->
+  <input type="text" id="searchInput" placeholder="Search crypto (e.g. bitcoin)" oninput="autocompleteCrypto()" />
+  <div id="autocomplete-suggestions"></div>
+  <button onclick="searchCrypto()">Search</button>
+  <button onclick="clearSaved()">Clear Saved Coins</button>
+
+  <div id="crypto-container"></div>
+  <canvas id="priceChart" width="600" height="400"></canvas>
+
+  <!-- Modal for Detailed Coin View -->
+  <div id="coinModal" style="display: none;">
+    <div id="modal-content">
+      <span id="closeModal" onclick="closeModal()">&times;</span>
+      <h2 id="coinName"></h2>
+      <p id="coinDetails"></p>
+      <canvas id="coinChart" width="600" height="400"></canvas>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
